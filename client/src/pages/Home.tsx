@@ -79,14 +79,26 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-16 px-4 md:px-8">
+      <div className=" py-16 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            🚀 Trilha de Conhecimento para Desenvolvedores
-          </h1>
-          <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl">
-            Uma jornada completa através de todos os conhecimentos essenciais para se tornar um desenvolvedor profissional. Desde fundamentos até tópicos avançados.
-          </p>
+          <div className="space-y-6">
+
+              <h4 className="w-fit" >
+                🎯 Programa de Onboarding
+              </h4>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                Bem-vindo à sua{" "}
+                <span className="text-primary">Jornada de Aprendizado</span>
+              </h1>
+
+              <p className="text-lg text-muted-foreground max-w-xl">
+                Desenvolva as habilidades essenciais para se tornar um desenvolvedor de sucesso. 
+                Nossa trilha de conhecimentos foi cuidadosamente estruturada para guiar você do básico ao avançado.
+              </p>
+              
+
+            </div>
 
           {/* Search Bar */}
           <div className="relative max-w-md">
@@ -184,28 +196,14 @@ export default function Home() {
           )}
         </div>
 
-        {/* CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg text-white p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Pronto para começar sua jornada?
-          </h2>
-          <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-            Selecione um módulo acima para explorar os tópicos e começar a aprender. Cada tópico contém recursos e orientações para seu aprendizado.
-          </p>
-          <Button
-            size="lg"
-            className="bg-white text-blue-600 hover:bg-gray-100"
-          >
-            Comece Agora
-          </Button>
-        </div>
+        
       </div>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 px-4 md:px-8 mt-12">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2024 Trilha de Conhecimento para Desenvolvedores. Desenvolvido com ❤️ para impulsionar sua carreira.
+            © 2025 Trilha de Conhecimento para Desenvolvedores. Desenvolvido com ❤️ para impulsionar sua carreira.
           </p>
         </div>
       </footer>
