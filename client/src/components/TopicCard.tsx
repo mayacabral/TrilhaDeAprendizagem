@@ -1,6 +1,7 @@
 import { Topic } from "@/data/learningPath";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Zap } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 
 interface TopicCardProps {
   topic: Topic;
@@ -20,13 +21,13 @@ const levelLabels: Record<string, string> = {
 };
 
 export default function TopicCard({ topic, onClick }: TopicCardProps) {
+  
   return (
     <div
       onClick={() => onClick(topic.id)}
       className="group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-blue-400 p-5"
     >
       <div className="flex items-start justify-between mb-3">
-        <span className="text-3xl">{topic.icon}</span>
         <Badge className={`${levelColors[topic.level]} border-0`}>
           {levelLabels[topic.level]}
         </Badge>
@@ -40,16 +41,7 @@ export default function TopicCard({ topic, onClick }: TopicCardProps) {
         {topic.description}
       </p>
       
-      <div className="flex items-center gap-4 text-xs text-gray-500">
-        <div className="flex items-center gap-1">
-          <Clock size={14} />
-          <span>{topic.duration}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <Zap size={14} />
-          <span>{topic.resources?.length || 0} recursos</span>
-        </div>
-      </div>
+      
     </div>
   );
 }

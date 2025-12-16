@@ -12,11 +12,10 @@ const filters = [
   { id: "advanced", label: "Avançado" },
 ];
 
-export default function FilterBar({
-  activeFilter,
-  onFilterChange,
-}: FilterBarProps) {
+export default function FilterBar({activeFilter, onFilterChange,}: FilterBarProps) {
+
   return (
+    
     <div className="flex flex-wrap gap-2 mb-6">
       {filters.map((filter) => (
         <Button

@@ -6,6 +6,8 @@ import ModuleDetail from "@/components/ModuleDetail";
 import TopicDetail from "@/components/TopicDetail";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
+import ModuleSistem from "@/components/ModuleSistem";
+
 
 export default function Home() {
   const { progress, markTopicComplete, isTopicComplete } = useProgress();
@@ -53,6 +55,12 @@ export default function Home() {
     }
   };
 
+  const [message, setMessage] = useState("");
+
+  //const hadleMessage = (msg) => {
+    //setMessage(msg);
+  //};
+
   // If a module is selected, show module detail
   if (selectedModule) {
     return (
@@ -63,6 +71,7 @@ export default function Home() {
           onTopicClick={handleTopicClick}
           completedTopics={completedTopicsSet}
         />
+
         {selectedTopic && (
           <TopicDetail
             topic={selectedTopic}
@@ -77,9 +86,10 @@ export default function Home() {
 
   // Main view - all modules
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-[#fffefc]">
+
       {/* Hero Section */}
-      <div className=" py-16 px-4 md:px-8">
+      <div className=" py-10 px-4 md:px-8 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="space-y-6">
 
@@ -88,80 +98,69 @@ export default function Home() {
               </h4>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Bem-vindo à sua{" "}
-                <span className="text-primary">Jornada de Aprendizado</span>
+                Bem-vindo à {" "}
+                <span className="text-primary">Processo Àgil</span>
               </h1>
 
               <p className="text-lg text-muted-foreground max-w-xl">
-                Desenvolva as habilidades essenciais para se tornar um desenvolvedor de sucesso. 
-                Nossa trilha de conhecimentos foi cuidadosamente estruturada para guiar você do básico ao avançado.
+                Ajudamos escritórios a evoluírem com tecnologia e metodologia. Juntos, vamos ainda mais longe.
+                
               </p>
-              
-
             </div>
 
-          {/* Search Bar */}
-          <div className="relative max-w-md">
-            <Search
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-              size={20}
-            />
-            <input
-              type="text"
-              placeholder="Buscar módulos..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-7 pt-15">
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                {learningPathData.length}
+              </div>
+              <div className="text-gray-600 text-sm">Módulos</div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="text-3xl font-bold text-green-600 mb-2">
+                {learningPathData.reduce((acc, m) => acc + m.topics.length, 0)}
+              </div>
+              <div className="text-gray-600 text-sm">Tópicos</div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="text-3xl font-bold text-orange-600 mb-2">
+                {learningPathData.reduce(
+                  (acc, m) =>
+                    acc +
+                    m.topics.reduce(
+                      (topicAcc, t) => topicAcc + (t.resources?.length || 0),
+                      0
+                    ),
+                  0
+                )}
+            </div>
+            <div className="text-gray-600 text-sm">Recursos</div>
+            </div>
+
           </div>
+
+        {/* Search Bar */}
+        <div className="relative max-w-md">
+          <Search
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            size={20}
+          />
+          <input
+            type="text"
+            placeholder="Buscar módulos..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full pl-10 pr-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
         </div>
       </div>
 
+
       {/* Stats Section */}
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="text-3xl font-bold text-blue-600 mb-2">
-              {learningPathData.length}
-            </div>
-            <div className="text-gray-600 text-sm">Módulos</div>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="text-3xl font-bold text-green-600 mb-2">
-              {learningPathData.reduce((acc, m) => acc + m.topics.length, 0)}
-            </div>
-            <div className="text-gray-600 text-sm">Tópicos</div>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="text-3xl font-bold text-purple-600 mb-2">
-              {Math.floor(
-                learningPathData.reduce((acc, m) =>
-                  acc +
-                  m.topics.reduce((topicAcc, t) => {
-                    const weeks = parseInt(t.duration.split("-")[0]);
-                    return topicAcc + weeks;
-                  }, 0),
-                  0
-                ) / 4
-              )}
-            </div>
-            <div className="text-gray-600 text-sm">Meses de Estudo</div>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="text-3xl font-bold text-orange-600 mb-2">
-              {learningPathData.reduce(
-                (acc, m) =>
-                  acc +
-                  m.topics.reduce(
-                    (topicAcc, t) => topicAcc + (t.resources?.length || 0),
-                    0
-                  ),
-                0
-              )}
-            </div>
-            <div className="text-gray-600 text-sm">Recursos</div>
-          </div>
-        </div>
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-5">
 
         {/* Modules Grid */}
         <div>
@@ -183,19 +182,21 @@ export default function Home() {
             </div>
           ) : (
             <div className="text-center py-12">
+
               <p className="text-gray-600 text-lg mb-4">
                 Nenhum módulo encontrado para "{searchTerm}"
               </p>
+
               <Button
                 onClick={() => setSearchTerm("")}
                 variant="outline"
               >
                 Limpar Busca
               </Button>
+
             </div>
           )}
         </div>
-
         
       </div>
 
@@ -203,7 +204,7 @@ export default function Home() {
       <footer className="bg-gray-800 text-white py-8 px-4 md:px-8 mt-12">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2025 Trilha de Conhecimento para Desenvolvedores. Desenvolvido com ❤️ para impulsionar sua carreira.
+            © 2025 ProcessoÁgil. <br />Todos os direitos reservados.
           </p>
         </div>
       </footer>

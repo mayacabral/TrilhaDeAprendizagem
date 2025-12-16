@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Module } from "@/data/learningPath";
+import type { ComponentType, SVGProps, ReactElement } from "react";
+import { isValidElement } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import TopicCard from "./TopicCard";
@@ -21,17 +23,31 @@ export default function ModuleDetail({
 }: ModuleDetailProps) {
   const [levelFilter, setLevelFilter] = useState<string | null>(null);
 
+  
   const filteredTopics = levelFilter
     ? module.topics.filter((t) => t.level === levelFilter)
     : module.topics;
+
+  console.log("levelFilter:", levelFilter);
+  console.log("filteredTopics count:", filteredTopics.length);
+  console.log("module.topics levels:", module.topics.map(t => t.level));
 
   const progressPercentage = Math.round(
     (Array.from(completedTopics).filter((id) =>
       module.topics.some((t) => t.id === id)
     ).length / module.topics.length) * 100
   );
+  
+  const renderIcon = (icon: Module["icon"]) => {
+    if (!icon) return null;
+    if (typeof icon === "string") return <span className="text-6xl">{icon}</span>;
+    if (isValidElement(icon as any)) return icon as unknown as ReactElement;
+    const Icon = icon as ComponentType<SVGProps<SVGSVGElement>>;
+    return <Icon className="w-16 h-16 text-white" />;
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className={`${module.color} text-white py-12 px-4 md:px-8`}>
         <div className="max-w-6xl mx-auto">
@@ -44,7 +60,7 @@ export default function ModuleDetail({
             Voltar
           </Button>
           <div className="flex items-center gap-6 mb-4">
-            <span className="text-6xl">{module.icon}</span>
+            {renderIcon(module.icon)}
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-2">
                 {module.title}
@@ -96,10 +112,9 @@ export default function ModuleDetail({
 
         {/* Topics Grid */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">
-            Tópicos de Aprendizado
-          </h2>
+          
           <FilterBar activeFilter={levelFilter} onFilterChange={setLevelFilter} />
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredTopics.map((topic) => (
               <TopicCard
@@ -109,6 +124,7 @@ export default function ModuleDetail({
               />
             ))}
           </div>
+          
         </div>
       </div>
     </div>

@@ -1,11 +1,21 @@
+import {Text,Shapes, BookOpen, Code, Database,Church, GitBranch, Rocket, WrapText,  Users, CheckCircle2, ArrowRight, Computer, AArrowDown, ALargeSmall,Activity, Airplay, AlarmClockCheck } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
+
+
 export interface Topic {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon?: string | ComponentType<SVGProps<SVGSVGElement>>;
   level: "beginner" | "intermediate" | "advanced";
-  duration: string;
-  resources?: string[];
+  resources?: { title: string; link?: string; page?: number }[];
+}
+
+export interface Resource{
+  id: string;
+  title: string;
+  description: string;
+  link: string;
 }
 
 export interface Module {
@@ -13,269 +23,395 @@ export interface Module {
   title: string;
   description: string;
   color: string;
-  icon: string;
+  icon?: string | ComponentType<SVGProps<SVGSVGElement>>;
   topics: Topic[];
+  
 }
 
 export const learningPathData: Module[] = [
   {
-    id: "fundamentals",
-    title: "Fundamentos de Programação",
-    description: "Conceitos essenciais que todo desenvolvedor deve dominar",
-    color: "bg-blue-500",
-    icon: "📚",
-    topics: [
-      {
-        id: "logic",
-        title: "Lógica de Programação",
-        description: "Estruturas de controle, loops, condicionais e algoritmos básicos",
-        icon: "🧠",
-        level: "beginner",
-        duration: "2-3 semanas",
-        resources: ["Algoritmos", "Estruturas de Dados", "Pseudocódigo"],
-      },
-      {
-        id: "variables",
-        title: "Variáveis e Tipos de Dados",
-        description: "Tipos primitivos, conversão de tipos e escopo de variáveis",
-        icon: "📦",
-        level: "beginner",
-        duration: "1 semana",
-        resources: ["Tipos Primitivos", "Casting", "Escopo"],
-      },
-      {
-        id: "functions",
-        title: "Funções e Métodos",
-        description: "Criação, invocação e escopo de funções",
-        icon: "⚙️",
-        level: "beginner",
-        duration: "1-2 semanas",
-        resources: ["Funções Puras", "Callbacks", "Arrow Functions"],
-      },
-      {
-        id: "oop",
-        title: "Programação Orientada a Objetos",
-        description: "Classes, herança, polimorfismo e encapsulamento",
-        icon: "🎯",
-        level: "intermediate",
-        duration: "3-4 semanas",
-        resources: ["Classes", "Herança", "Polimorfismo", "SOLID"],
-      },
-    ],
-  },
-  {
-    id: "frontend",
-    title: "Desenvolvimento Frontend",
-    description: "Tecnologias e práticas para criar interfaces web",
+    id: "fronte",
+    title: "Rotinas",
+    description: "Principais rotinas de monitoramento e manutenção do sistema",
     color: "bg-purple-500",
-    icon: "🎨",
+    icon: Code,
     topics: [
       {
-        id: "html",
-        title: "HTML5",
-        description: "Estrutura semântica, formulários e acessibilidade",
-        icon: "🏗️",
+        id: "dje",
+        title: "Comunicações no Domicílio Eletrônico",
+        description: "Verificar se todas as comunicações expedidas ontem estão com ciência marcada. Se alguma comunicação estiver sem ciência, alertar a EJOTA.",        
+        level: "intermediate",       
+        resources: [
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+          { title: "DJE", link: "https://sso.cloud.pje.jus.br/auth/realms/pje/protocol/openid-connect/auth?client_id=domicilio-eletronico-frontend&redirect_uri=https%3A%2F%2Fdomicilio-eletronico.pdpj.jus.br%2F&state=515a0c86-ec0c-498f-b02a-442ada5e28b6&response_mode=fragment&response_type=code&scope=openid&nonce=d42bd2d4-e031-4c8a-88cc-55060ca6b8cd" },
+          { title: "Manual de Soluções - Página 19", link: "/midia/manoel.pdf#page=19" },
+        ],
+      },
+      {
+        id: "DJE",
+        title: "Intimações no DJE com o Sistema dos Clientes",
+        description: "Comparar a quantidade de comunicações registradas no DJE com os dados que vieram via SQL. Caso haja divergência, acionar a equipe responsável pelo source.",        
+        level: "intermediate",       
+        resources: [
+          { title: "SQL", link: "https://www.w3schools.com/sql/" },
+          { title: "DJE", link: "https://sso.cloud.pje.jus.br/auth/realms/pje/protocol/openid-connect/auth?client_id=domicilio-eletronico-frontend&redirect_uri=https%3A%2F%2Fdomicilio-eletronico.pdpj.jus.br%2F&state=515a0c86-ec0c-498f-b02a-442ada5e28b6&response_mode=fragment&response_type=code&scope=openid&nonce=d42bd2d4-e031-4c8a-88cc-55060ca6b8cd" },
+          { title: "Manual de Soluções - Página 21", link: "/midia/manoel.pdf#page=21" },
+        ],
+      },
+      {
+        id: "DJEPortal",
+        title: "DJE em caso de erro no portal",
+        description: "Fornecer um procedimento alternativo para verificar expedientes do DJE caso o portal esteja fora do ar ou com falhas na exibição.",        
+        level: "intermediate",       
+        resources: [
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+          { title: "Manual de Soluções - Página 22 ", link: "/midia/manoel.pdf#page=22" },
+        ],
+      },
+      {
+        id: "Source",
+        title: "Fila no Source",
+        description: "Monitorar o tamanho da collection “fila” do banco softurbano no MongoDB softurbano. Caso esteja muito grande, diagnosticar e corrigir gargalos no processamento.",       
+        level: "intermediate",       
+        resources: [
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+          { title: "Manual de Soluções - Página 24", link: "/midia/manoel.pdf#page=24" },
+        ],
+      },
+      {
+        id: "Tasks",
+        title: "Transparência – Tasks no Turing",
+        description: "Garantir que os processos da Transparência estão em execução automática, para evitar travamentos ou atrasos.", 
         level: "beginner",
-        duration: "1-2 semanas",
-        resources: ["Semântica", "Formulários", "ARIA", "SEO"],
+        resources: [
+          { title: "Manual de Soluções - Página 26", link: "/midia/manoel.pdf#page=26" },]
       },
       {
-        id: "css",
-        title: "CSS3 e Responsividade",
-        description: "Estilos, layouts flexbox, grid e design responsivo",
-        icon: "🎨",
+        id: "Privada",
+        title: "Página de Tokens – Consulta Privada",
+        description: "Identificar tokens/processos mais desatualizados e investigar a causa do atraso para corrigi-la.",        
+        level: "intermediate",
+       
+        resources: [
+          { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },
+          { title: "Manual de Soluções - Página 27", link: "/midia/manoel.pdf#page=27" },
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+        ],
+      },
+      {
+        id: "Tokens",
+        title: "Tokens Físicos Pendentes",
+        description: "Identificar se há tokens físicos pendentes no sistema, a fim de garantir que os processos estejam com os dados atualizados e prontos para uso.",        
         level: "beginner",
-        duration: "2-3 semanas",
-        resources: ["Flexbox", "Grid", "Media Queries", "Animações"],
+       
+        resources: [
+          { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },
+          { title: "Manual de Soluções - Página 28", link: "/midia/manoel.pdf#page=28" },
+        ],
       },
       {
-        id: "javascript",
-        title: "JavaScript Moderno",
-        description: "ES6+, async/await, promises e manipulação do DOM",
-        icon: "⚡",
+        id: "Publica",
+        title: "Página de Tribunais – Consulta Pública",
+        description: "Monitorar o status de todos os sistemas de tribunais, identificar atrasos ou falhas, e realizar correções sistema a sistema com foco em manter a cobertura o mais próxima possível de 100%.",        
         level: "intermediate",
-        duration: "3-4 semanas",
-        resources: ["ES6+", "Async/Await", "Promises", "DOM API"],
+       
+        resources: [
+          { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },
+          { title: "Manual de Soluções - Página 30", link: "/midia/manoel.pdf#page=30" },
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+        ],
       },
       {
-        id: "react",
-        title: "React e Componentes",
-        description: "Hooks, state management, lifecycle e performance",
-        icon: "⚛️",
+        id: "VelocidadeCaptura",
+        title: "Página de Tribunais – Velocidade de captura",
+        description: "Monitorar a quantidade de processos verificados por hora.",        
         level: "intermediate",
-        duration: "4-5 semanas",
-        resources: ["Hooks", "Context API", "Redux", "Performance"],
+       
+        resources: [
+          { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },
+          { title: "Manual de Soluções - Página 30", link: "/midia/manoel.pdf#page=30" },
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+        ],
       },
       {
-        id: "frontend-tools",
-        title: "Ferramentas Frontend",
-        description: "Webpack, Vite, npm e build tools",
-        icon: "🔧",
-        level: "intermediate",
-        duration: "2-3 semanas",
-        resources: ["Vite", "Webpack", "NPM", "Package Management"],
+        id: "emailJuridico",
+        title: "E-mails Jurídicos",
+        description: "Verificar se o serviço de envio dos e-mails jurídicos (resumo dos diários) está rodando corretamente. Caso esteja travado, tomar providências para garantir que o DJEN seja executado.",        
+        level: "beginner",
+       
+        resources: [
+          { title: "Emails", link: "https://berners.processoagil.com/Sistema/Email/Email.asmx" },
+          { title: "Manual de Soluções - Página 32", link: "/midia/manoel.pdf#page=32" },
+        ],
+      },
+      {
+        id: "emailExpediente",
+        title: "E-mails de Expedientes",
+        description: "Verificar se os e-mails de expedientes foram gerados corretamente. Se estiverem travados, diagnosticar e corrigir as causas, incluindo travas por códigos falsos ou fontes que não rodaram.",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "Emails", link: " https://berners.processoagil.com/Sistema/Email/Email.asmx" },
+          { title: "Manual de Soluções - Página 33", link: "/midia/manoel.pdf#page=33" },
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+        ],
+      },
+      {
+        id: "zabbix",
+        title: "Velocidade das Páginas – Zabbix",
+        description: "Monitorar o tempo de resposta das páginas dos sistemas por meio do painel do Zabbix, identificando possíveis lentidões ou falhas de carregamento.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Zabix", link: "http://fallout.processoagil.com/zabbix" },
+          { title: "Manual de Soluções - Página 35", link: "/midia/manoel.pdf#page=35" },
+        ],
+      },
+      {
+        id: "caern",
+        title: "Controladoria Jurídica – CAERN",
+        description: "Garantir que a página da controladoria jurídica da CAERN esteja acessível e com desempenho rápido, para que as equipes possam trabalhar sem lentidão ou travamentos.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "CAERN", link: "https://processoagil.com/caern" },
+          { title: "Manual de Soluções - Página 36", link: "/midia/manoel.pdf#page=36" },
+        ],
+      },
+      {
+        id: "DJEN",
+        title: "Execução do DJEN",
+        description: "Garantir que os diários do DJEN sejam capturados corretamente pelo sistema ComunicaPJe, processados pelo programa BuscarDiários, e monitorar a execução ao longo do dia.",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "SQL", link: "https://www.w3schools.com/sql/default.asp" },
+          { title: "Manual de Soluções - Página 37", link: "/midia/manoel.pdf#page=37" },
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+        ],
+      },
+      {
+        id: "miniPc",
+        title: "Mini PCs Ligados e Funcionando",
+        description: "Garantir que todos os Mini PCs do setor estejam ativos, conectados e prontos para uso.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Google remote", link: "https://remotedesktop.google.com/" },
+          { title: "Manual de Soluções - Página 39", link: "/midia/manoel.pdf#page=39" },],
+      },
+      {
+        id: "SAG",
+        title: "SAG – BigTable",
+        description: "Acompanhar a situação dos sistemas SAG na BigTable e identificar falhas, lentidão ou comportamento inesperado.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },
+          { title: "Manual de Soluções - Página 40", link: "/midia/manoel.pdf#page=40" },],
+      },
+      {
+        id: "CadastrarTokenA3",
+        title: "Cadastrar Token A3 para SAG – INSS",
+        description: "Cadastrar e ativar um Token A3 para uso no sistema SAG (INSS), incluindo a configuração de login automático via MongoDB.",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+          { title: "Manual de Soluções - Página 42", link: "/midia/manoel.pdf#page=42" },],
+      },
+      {
+        id: "TramitacoesDesconhecidas",
+        title: "Tramitações desconhecidas",
+        description: "Acompanhar registros de novos tribunais JusBr",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+          { title: "SQL", link: "https://www.w3schools.com/sql/default.asp" },
+          { title: "Manual de Soluções - Página 46", link: "/midia/manoel.pdf#page=46" },],
+      },
+      {
+        id: "dataGiroFila",
+        title: "Registro de Data de Giro da Fila",
+        description: "Acompanhar a última vez que a fila rodou",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+          { title: "Manual de Soluções - Página 47", link: "/midia/manoel.pdf#page=47" },],
+      },
+      {
+        id: "palupRodando",
+        title: "Registro de Palups Rodando",
+        description: "Acompanhar a quantidade de programas ProcessoAgil LUP que estão rodando",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
+          { title: "Manual de Soluções - Página 48", link: "/midia/manoel.pdf#page=48" },],
+      },
+      {
+        id: "velocidadeCaptura",
+        title: "Velocidade de captura",
+        description: "Acompanhar a quantidade de processos do JusBr que são capturados por hora",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 48", link: "/midia/manoel.pdf#page=48" },],
+      },
+      {
+        id: "ultimoDocumentoBt",
+        title: "Ver data em que a transparência rodou",
+        description: "Acompanhar a data de atualização em que a transparência rodou por último",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },],
       },
     ],
+    
   },
+  
   {
     id: "backend",
-    title: "Desenvolvimento Backend",
+    title: "SQL server",
     description: "Servidores, APIs e lógica de negócio",
     color: "bg-green-500",
-    icon: "🖥️",
+    icon: Database,
     topics: [
       {
         id: "nodejs",
         title: "Node.js e Express",
         description: "Servidores, rotas e middleware",
-        icon: "🟢",
+        
         level: "intermediate",
-        duration: "3-4 semanas",
-        resources: ["Express", "Middleware", "Routing", "Error Handling"],
+       
+        resources: [
+          { title: "Express", link: "https://expressjs.com" },
+          { title: "Middleware (Express)", link: "https://expressjs.com/en/guide/using-middleware.html" },
+          { title: "Routing (Express)", link: "https://expressjs.com/en/guide/routing.html" },
+          { title: "Error Handling (Express)", link: "https://expressjs.com/en/guide/error-handling.html" },
+        ],
       },
       {
         id: "databases",
         title: "Bancos de Dados",
         description: "SQL, NoSQL e modelagem de dados",
-        icon: "🗄️",
+        
         level: "intermediate",
-        duration: "4-5 semanas",
-        resources: ["PostgreSQL", "MongoDB", "Normalização", "Queries"],
+       
+        resources: [
+          { title: "PostgreSQL", link: "https://www.postgresql.org" },
+          { title: "MongoDB", link: "https://www.mongodb.com" },
+          { title: "Database Normalization", link: "https://en.wikipedia.org/wiki/Database_normalization" },
+          { title: "SQL Docs (PostgreSQL)", link: "https://www.postgresql.org/docs/current/sql.html" },
+        ],
       },
       {
         id: "apis",
         title: "APIs RESTful e GraphQL",
         description: "Design de APIs, autenticação e versionamento",
-        icon: "🔌",
+        
         level: "intermediate",
-        duration: "3-4 semanas",
-        resources: ["REST", "GraphQL", "JWT", "OAuth"],
+       
+        resources: [
+          { title: "REST", link: "https://restfulapi.net" },
+          { title: "GraphQL", link: "https://graphql.org" },
+          { title: "JWT", link: "https://jwt.io" },
+          { title: "OAuth", link: "https://oauth.net" },
+        ],
       },
       {
         id: "authentication",
         title: "Autenticação e Autorização",
         description: "JWT, OAuth2, sessões e segurança",
-        icon: "🔐",
+        
         level: "advanced",
-        duration: "2-3 semanas",
-        resources: ["JWT", "OAuth2", "Sessions", "CORS"],
+       
+        resources: [
+          { title: "JWT", link: "https://jwt.io" },
+          { title: "OAuth2", link: "https://oauth.net/2/" },
+          { title: "Session Management (MDN)", link: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Session_management" },
+          { title: "CORS (MDN)", link: "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" },
+        ],
       },
       {
         id: "backend-frameworks",
         title: "Frameworks Backend",
         description: "Django, Spring, Laravel e outras opções",
-        icon: "🏗️",
+        
         level: "advanced",
-        duration: "4-6 semanas",
-        resources: ["Django", "Spring Boot", "Laravel", "NestJS"],
+       
+        resources: [
+          { title: "Django", link: "https://www.djangoproject.com" },
+          { title: "Spring Boot", link: "https://spring.io/projects/spring-boot" },
+          { title: "Laravel", link: "https://laravel.com" },
+          { title: "NestJS", link: "https://nestjs.com" },
+        ],
       },
     ],
+    
   },
+
   {
     id: "databases",
-    title: "Bancos de Dados",
+    title: "Mongo Db",
     description: "Armazenamento, consultas e otimização de dados",
     color: "bg-orange-500",
-    icon: "🗄️",
+    icon: Database,
     topics: [
       {
         id: "sql-basics",
         title: "SQL Fundamentals",
         description: "SELECT, INSERT, UPDATE, DELETE e JOINs",
-        icon: "📊",
+        
         level: "beginner",
-        duration: "2-3 semanas",
-        resources: ["CRUD", "JOINs", "Aggregations", "Subqueries"],
+       
+        resources: [
+          { title: "CRUD (wiki)", link: "https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" },
+          { title: "Table Expressions (Postgres)", link: "https://www.postgresql.org/docs/current/queries-table-expressions.html" },
+          { title: "Aggregation (MongoDB)", link: "https://www.mongodb.com/docs/manual/aggregation/" },
+          { title: "Subqueries (Postgres)", link: "https://www.postgresql.org/docs/current/queries-subqueries.html" },
+        ],
       },
       {
         id: "database-design",
         title: "Design de Bancos de Dados",
         description: "Normalização, relacionamentos e índices",
-        icon: "📐",
+        
         level: "intermediate",
-        duration: "3-4 semanas",
-        resources: ["Normalização", "Relacionamentos", "Índices", "Schema"],
+       
+        resources: [
+          { title: "Database Normalization", link: "https://en.wikipedia.org/wiki/Database_normalization" },
+          { title: "Database Schema", link: "https://en.wikipedia.org/wiki/Database_schema" },
+          { title: "Use The Index Luke", link: "https://use-the-index-luke.com/" },
+          { title: "Schema (generic)", link: "#" },
+        ],
       },
       {
         id: "nosql",
         title: "Bancos NoSQL",
         description: "MongoDB, Redis, Cassandra e outros",
-        icon: "📦",
+        
         level: "intermediate",
-        duration: "2-3 semanas",
-        resources: ["MongoDB", "Redis", "Document Stores", "Key-Value"],
-      },
-      {
-        id: "database-optimization",
-        title: "Otimização e Performance",
-        description: "Query optimization, caching e replicação",
-        icon: "⚡",
-        level: "advanced",
-        duration: "3-4 semanas",
-        resources: ["Query Optimization", "Indexing", "Caching", "Replication"],
+       
+        resources: [
+          { title: "MongoDB", link: "https://www.mongodb.com" },
+          { title: "Redis", link: "https://redis.io" },
+          { title: "Document Stores (wiki)", link: "https://en.wikipedia.org/wiki/Document-oriented_database" },
+          { title: "Key-Value DBs (wiki)", link: "https://en.wikipedia.org/wiki/Key-value_database" },
+        ],
       },
     ],
-  },
-  {
-    id: "devops",
-    title: "DevOps e Infraestrutura",
-    description: "Deploy, CI/CD, containers e cloud",
-    color: "bg-red-500",
-    icon: "🚀",
-    topics: [
-      {
-        id: "git",
-        title: "Git e Controle de Versão",
-        description: "Commits, branches, merge e workflow",
-        icon: "📝",
-        level: "beginner",
-        duration: "1-2 semanas",
-        resources: ["Commits", "Branches", "Merge", "Rebase"],
-      },
-      {
-        id: "docker",
-        title: "Docker e Containers",
-        description: "Containerização, imagens e orquestração",
-        icon: "🐳",
-        level: "intermediate",
-        duration: "3-4 semanas",
-        resources: ["Images", "Containers", "Docker Compose", "Registry"],
-      },
-      {
-        id: "cicd",
-        title: "CI/CD Pipelines",
-        description: "Automação, testes e deploy contínuo",
-        icon: "🔄",
-        level: "intermediate",
-        duration: "3-4 semanas",
-        resources: ["GitHub Actions", "Jenkins", "GitLab CI", "Testing"],
-      },
-      {
-        id: "kubernetes",
-        title: "Kubernetes",
-        description: "Orquestração, scaling e gerenciamento",
-        icon: "☸️",
-        level: "advanced",
-        duration: "4-6 semanas",
-        resources: ["Pods", "Services", "Deployments", "Helm"],
-      },
-      {
-        id: "cloud",
-        title: "Cloud Computing",
-        description: "AWS, Azure, GCP e serverless",
-        icon: "☁️",
-        level: "intermediate",
-        duration: "4-5 semanas",
-        resources: ["AWS", "Azure", "GCP", "Serverless"],
-      },
-    ],
+    
   },
   {
     id: "testing",
     title: "Testes e Qualidade",
     description: "Garantir confiabilidade e manutenibilidade do código",
     color: "bg-pink-500",
-    icon: "✅",
+    icon: Shapes,
     topics: [
       {
         id: "unit-testing",
@@ -283,44 +419,65 @@ export const learningPathData: Module[] = [
         description: "Jest, Vitest, Mocha e frameworks de teste",
         icon: "🧪",
         level: "intermediate",
-        duration: "2-3 semanas",
-        resources: ["Jest", "Vitest", "Mocha", "Assertions"],
+       
+        resources: [
+          { title: "Jest", link: "https://jestjs.io" },
+          { title: "Vitest", link: "https://vitest.dev" },
+          { title: "Mocha", link: "https://mochajs.org" },
+          { title: "Assertions (wiki)", link: "https://en.wikipedia.org/wiki/Assertion_(software_development)" },
+        ],
       },
       {
         id: "integration-testing",
         title: "Testes de Integração",
         description: "Testes de API, banco de dados e componentes",
-        icon: "🔗",
+        
         level: "intermediate",
-        duration: "2-3 semanas",
-        resources: ["Supertest", "Cypress", "Playwright", "Integration"],
+       
+        resources: [
+          { title: "Supertest", link: "https://github.com/visionmedia/supertest" },
+          { title: "Cypress", link: "https://www.cypress.io" },
+          { title: "Playwright", link: "https://playwright.dev" },
+          { title: "Integration (generic)", link: "#" },
+        ],
       },
       {
         id: "e2e-testing",
         title: "Testes E2E",
         description: "Automação de testes de interface",
-        icon: "🎭",
+        
         level: "advanced",
-        duration: "2-3 semanas",
-        resources: ["Cypress", "Playwright", "Selenium", "Automation"],
+       
+        resources: [
+          { title: "Cypress", link: "https://www.cypress.io" },
+          { title: "Playwright", link: "https://playwright.dev" },
+          { title: "Selenium", link: "https://www.selenium.dev" },
+          { title: "Automation (generic)", link: "#" },
+        ],
       },
       {
         id: "tdd",
         title: "Test-Driven Development",
         description: "Metodologia TDD e boas práticas",
-        icon: "🔴",
+        
         level: "advanced",
-        duration: "2-3 semanas",
-        resources: ["TDD", "BDD", "Refactoring", "Coverage"],
+       
+        resources: [
+          { title: "TDD (wiki)", link: "https://en.wikipedia.org/wiki/Test-driven_development" },
+          { title: "BDD (wiki)", link: "https://en.wikipedia.org/wiki/Behavior-driven_development" },
+          { title: "Refactoring (guide)", link: "https://refactoring.guru/refactoring/what-is-refactoring" },
+          { title: "Code Coverage (wiki)", link: "https://en.wikipedia.org/wiki/Code_coverage" },
+        ],
       },
     ],
+    
   },
   {
     id: "soft-skills",
     title: "Soft Skills e Profissionalismo",
     description: "Habilidades essenciais para carreira em desenvolvimento",
     color: "bg-indigo-500",
-    icon: "🤝",
+    icon: Text ,
     topics: [
       {
         id: "communication",
@@ -328,81 +485,44 @@ export const learningPathData: Module[] = [
         description: "Documentação, apresentações e trabalho em equipe",
         icon: "💬",
         level: "intermediate",
-        duration: "2-3 semanas",
-        resources: ["Documentação", "Apresentações", "Feedback", "Empatia"],
+       
+        resources: [
+          { title: "Documentação", link: "#" },
+          { title: "Apresentações", link: "#" },
+          { title: "Feedback", link: "#" },
+          { title: "Empatia", link: "#" },
+        ],
       },
       {
         id: "problem-solving",
         title: "Resolução de Problemas",
         description: "Debugging, análise e pensamento crítico",
-        icon: "🔍",
+        
         level: "intermediate",
-        duration: "2-3 semanas",
-        resources: ["Debugging", "Análise", "Criatividade", "Lógica"],
+       
+        resources: [
+          { title: "Debugging (wiki)", link: "https://en.wikipedia.org/wiki/Debugging" },
+          { title: "Análise", link: "#" },
+          { title: "Criatividade", link: "#" },
+          { title: "Lógica", link: "#" },
+        ],
       },
       {
         id: "agile",
         title: "Metodologias Ágeis",
         description: "Scrum, Kanban e práticas de desenvolvimento",
-        icon: "📋",
+       
         level: "intermediate",
-        duration: "1-2 semanas",
-        resources: ["Scrum", "Kanban", "Sprint", "Retrospectiva"],
-      },
-      {
-        id: "leadership",
-        title: "Liderança Técnica",
-        description: "Mentoria, arquitetura e decisões técnicas",
-        icon: "👨‍💼",
-        level: "advanced",
-        duration: "3-4 semanas",
-        resources: ["Mentoria", "Arquitetura", "Code Review", "Decisões"],
+       
+        resources: [
+          { title: "Scrum", link: "https://scrum.org" },
+          { title: "Kanban", link: "https://kanbanize.com/kanban-resources/getting-started/what-is-kanban" },
+          { title: "Sprint", link: "#" },
+          { title: "Retrospectiva", link: "#" },
+        ],
       },
     ],
+   
   },
-  {
-    id: "advanced",
-    title: "Tópicos Avançados",
-    description: "Especializações e tecnologias emergentes",
-    color: "bg-cyan-500",
-    icon: "🚀",
-    topics: [
-      {
-        id: "microservices",
-        title: "Arquitetura de Microserviços",
-        description: "Design, comunicação e orquestração",
-        icon: "🏗️",
-        level: "advanced",
-        duration: "4-6 semanas",
-        resources: ["Service Design", "API Gateway", "Event Streaming", "Saga"],
-      },
-      {
-        id: "performance",
-        title: "Otimização de Performance",
-        description: "Profiling, caching e escalabilidade",
-        icon: "⚡",
-        level: "advanced",
-        duration: "3-4 semanas",
-        resources: ["Profiling", "Caching", "CDN", "Load Balancing"],
-      },
-      {
-        id: "security",
-        title: "Segurança de Aplicações",
-        description: "OWASP, criptografia e práticas seguras",
-        icon: "🔒",
-        level: "advanced",
-        duration: "3-4 semanas",
-        resources: ["OWASP", "Criptografia", "Vulnerabilidades", "Best Practices"],
-      },
-      {
-        id: "machine-learning",
-        title: "Machine Learning Básico",
-        description: "Conceitos, frameworks e aplicações",
-        icon: "🤖",
-        level: "advanced",
-        duration: "4-6 semanas",
-        resources: ["TensorFlow", "PyTorch", "Scikit-learn", "Modelos"],
-      },
-    ],
-  },
+  
 ];
