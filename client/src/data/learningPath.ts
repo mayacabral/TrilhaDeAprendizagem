@@ -1,4 +1,4 @@
-import {Text,Shapes, BookOpen, Code, Database,Church, GitBranch, Rocket, WrapText,  Users, CheckCircle2, ArrowRight, Computer, AArrowDown, ALargeSmall,Activity, Airplay, AlarmClockCheck } from "lucide-react";
+import { AlertTriangle, Text,Shapes, BookOpen, Code, Database,Church, GitBranch, Rocket, WrapText,  Users, CheckCircle2, ArrowRight, Computer, AArrowDown, ALargeSmall,Activity, Airplay, AlarmClockCheck } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
 
@@ -30,7 +30,7 @@ export interface Module {
 
 export const learningPathData: Module[] = [
   {
-    id: "fronte",
+    id: "rotinas",
     title: "Rotinas",
     description: "Principais rotinas de monitoramento e manutenção do sistema",
     color: "bg-purple-500",
@@ -252,13 +252,13 @@ export const learningPathData: Module[] = [
           { title: "Manual de Soluções - Página 48", link: "/midia/manoel.pdf#page=48" },],
       },
       {
-        id: "velocidadeCaptura",
+        id: "velocidadeCaptura \o/ ",
         title: "Velocidade de captura",
         description: "Acompanhar a quantidade de processos do JusBr que são capturados por hora",        
         level: "beginner",  
        
         resources: [
-          { title: "Manual de Soluções - Página 48", link: "/midia/manoel.pdf#page=48" },],
+          { title: "Manual de Soluções - Página 49", link: "/midia/manoel.pdf#page=49" },],
       },
       {
         id: "ultimoDocumentoBt",
@@ -269,10 +269,109 @@ export const learningPathData: Module[] = [
         resources: [
           { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },],
       },
+      {
+        id: "sistemaPaliteWeb",
+        title: "Sistema Palite Web",
+        description: "Identificar quantidade de requisições do sistema web",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Zabix", link: "http://fallout.processoagil.com/zabbix" },
+          { title: "Manual de Soluções - Página 49", link: "/midia/manoel.pdf#page=49" },]
+      },
+      {
+        id: "iisSites",
+        title: "IIS de sites",
+        description: "Acompanhar o desempenho dos servidores IIS, identificando requisições congestionadas e possíveis lentidões nos serviços",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Zabix", link: "http://fallout.processoagil.com/zabbix" },
+          { title: "Manual de Soluções - Página 51", link: "/midia/manoel.pdf#page=51" },]
+      },
+      {
+        id: "processosTravados",
+        title: "Processos travados",
+        description: "Acompanhar se existem processos que travam o sistema ",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Zabix", link: "http://fallout.processoagil.com/zabbix" },
+          { title: "Manual de Soluções - Página 51", link: "/midia/manoel.pdf#page=51" },]
+      },
+      {
+        id: "acumuloFila",
+        title: "Acumulo na Fila",
+        description: "Acompanhar se a fila esté tendo uma vazão significativa",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 54", link: "/midia/manoel.pdf#page=54" },]
+      },
+      {
+        id: "upandoFaltantesExp",
+        title:"Upando Faltantes Exp",
+        description: "loren loren loren",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 55", link: "/midia/manoel.pdf#page=55" },]
+      },
+      {
+        id: "diariosBugados",
+        title:"Diários Bugados",
+        description: "Identificar a existência de processos com algum tipo de problema que esteja impactando as capturas.",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 59", link: "/midia/manoel.pdf#page=59" },
+          { title: "SQL", link: "https://www.w3schools.com/sql/default.asp" },]
+      },
+      {
+        id: "numerosAtrasados",
+        title:"Processos com atraso no envio ao Source",
+        description: "Acompanhar processos que sofreram alteração, mas não foram inseridos ou atualizados no Source.",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 56", link: "/midia/manoel.pdf#page=56" },
+          { title: "MongoDB", link: "https://www.mongodb.com" },]
+      },
+      {
+        id: "",
+        title:"",
+        description: "Acompanhar processos que sofreram alteração, mas não foram inseridos ou atualizados no Source.",        
+        level: "intermediate",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 56", link: "/midia/manoel.pdf#page=56" },
+          { title: "MongoDB", link: "https://www.mongodb.com" },]
+      },
     ],
     
   },
-  
+  {
+    id: "databases",
+    title: "Crítico",
+    description: "Loren loren loren",
+    color: "bg-red-500",
+    icon: AlertTriangle,
+    topics: [
+      {
+        id: "loren",
+        title: "loren",
+        description: "lores",
+        
+        level: "beginner",
+       
+        resources: [
+         
+        ],
+      },
+      
+    ],
+    
+  },
   {
     id: "backend",
     title: "SQL server",
@@ -406,6 +505,7 @@ export const learningPathData: Module[] = [
     ],
     
   },
+  
   {
     id: "testing",
     title: "Testes e Qualidade",

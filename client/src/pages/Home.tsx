@@ -103,7 +103,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg text-muted-foreground max-w-xl">
-                Ajudamos escritórios a evoluírem com tecnologia e metodologia. Juntos, vamos ainda mais longe.
+                Ajudamos escritórios de advocacia a terem controle e poder de decisão. Juntos, vamos ainda mais longe.
                 
               </p>
             </div>
@@ -124,21 +124,7 @@ export default function Home() {
               <div className="text-gray-600 text-sm">Tópicos</div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="text-3xl font-bold text-orange-600 mb-2">
-                {learningPathData.reduce(
-                  (acc, m) =>
-                    acc +
-                    m.topics.reduce(
-                      (topicAcc, t) => topicAcc + (t.resources?.length || 0),
-                      0
-                    ),
-                  0
-                )}
-            </div>
-            <div className="text-gray-600 text-sm">Recursos</div>
-            </div>
-
+           
           </div>
 
         {/* Search Bar */}
