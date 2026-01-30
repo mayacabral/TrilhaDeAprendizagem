@@ -129,7 +129,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },
-          { title: "Manual de Soluções - Página 30", link: "/midia/manoel.pdf#page=30" },
+          { title: "Manual de Soluções - Página 32", link: "/midia/manoel.pdf#page=32" },
           { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
         ],
       },
@@ -141,7 +141,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "Emails", link: "https://berners.processoagil.com/Sistema/Email/Email.asmx" },
-          { title: "Manual de Soluções - Página 32", link: "/midia/manoel.pdf#page=32" },
+          { title: "Manual de Soluções - Página 33", link: "/midia/manoel.pdf#page=33" },
         ],
       },
       {
@@ -152,7 +152,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "Emails", link: " https://berners.processoagil.com/Sistema/Email/Email.asmx" },
-          { title: "Manual de Soluções - Página 33", link: "/midia/manoel.pdf#page=33" },
+          { title: "Manual de Soluções - Página 34", link: "/midia/manoel.pdf#page=34" },
           { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
         ],
       },
@@ -164,7 +164,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "Zabix", link: "http://fallout.processoagil.com/zabbix" },
-          { title: "Manual de Soluções - Página 35", link: "/midia/manoel.pdf#page=35" },
+          { title: "Manual de Soluções - Página 36", link: "/midia/manoel.pdf#page=36" },
         ],
       },
       {
@@ -175,7 +175,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "CAERN", link: "https://processoagil.com/caern" },
-          { title: "Manual de Soluções - Página 36", link: "/midia/manoel.pdf#page=36" },
+          { title: "Manual de Soluções - Página 37", link: "/midia/manoel.pdf#page=37" },
         ],
       },
       {
@@ -186,7 +186,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "SQL", link: "https://www.w3schools.com/sql/default.asp" },
-          { title: "Manual de Soluções - Página 37", link: "/midia/manoel.pdf#page=37" },
+          { title: "Manual de Soluções - Página 38", link: "/midia/manoel.pdf#page=38" },
           { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
         ],
       },
@@ -198,7 +198,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "Google remote", link: "https://remotedesktop.google.com/" },
-          { title: "Manual de Soluções - Página 39", link: "/midia/manoel.pdf#page=39" },],
+          { title: "Manual de Soluções - Página 40", link: "/midia/manoel.pdf#page=40" },],
       },
       {
         id: "SAG",
@@ -208,7 +208,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "BigTable", link: "https://cs.processoagil.com.br/dashboard.html" },
-          { title: "Manual de Soluções - Página 40", link: "/midia/manoel.pdf#page=40" },],
+          { title: "Manual de Soluções - Página 41", link: "/midia/manoel.pdf#page=41" },],
       },
       {
         id: "CadastrarTokenA3",
@@ -218,7 +218,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
-          { title: "Manual de Soluções - Página 42", link: "/midia/manoel.pdf#page=42" },],
+          { title: "Manual de Soluções - Página 43", link: "/midia/manoel.pdf#page=43" },],
       },
       {
         id: "TramitacoesDesconhecidas",
@@ -229,7 +229,7 @@ export const learningPathData: Module[] = [
         resources: [
           { title: "MongoDB", link: "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path" },
           { title: "SQL", link: "https://www.w3schools.com/sql/default.asp" },
-          { title: "Manual de Soluções - Página 46", link: "/midia/manoel.pdf#page=46" },],
+          { title: "Manual de Soluções - Página 45", link: "/midia/manoel.pdf#page=45" },],
       },
       {
         id: "dataGiroFila",
@@ -252,7 +252,7 @@ export const learningPathData: Module[] = [
           { title: "Manual de Soluções - Página 48", link: "/midia/manoel.pdf#page=48" },],
       },
       {
-        id: "velocidadeCaptura \o/ ",
+        id: "velocidadeCaptura",
         title: "Velocidade de captura",
         description: "Acompanhar a quantidade de processos do JusBr que são capturados por hora",        
         level: "beginner",  
@@ -277,7 +277,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "Zabix", link: "http://fallout.processoagil.com/zabbix" },
-          { title: "Manual de Soluções - Página 49", link: "/midia/manoel.pdf#page=49" },]
+          { title: "Manual de Soluções - Página 36", link: "/midia/manoel.pdf#page=36" },]
       },
       {
         id: "iisSites",
@@ -297,7 +297,7 @@ export const learningPathData: Module[] = [
        
         resources: [
           { title: "Zabix", link: "http://fallout.processoagil.com/zabbix" },
-          { title: "Manual de Soluções - Página 51", link: "/midia/manoel.pdf#page=51" },]
+          { title: "Manual de Soluções - Página 54", link: "/midia/manoel.pdf#page=54" },]
       },
       {
         id: "acumuloFila",
@@ -306,16 +306,16 @@ export const learningPathData: Module[] = [
         level: "beginner",  
        
         resources: [
-          { title: "Manual de Soluções - Página 54", link: "/midia/manoel.pdf#page=54" },]
+          { title: "Manual de Soluções - Página 55", link: "/midia/manoel.pdf#page=55" },]
       },
       {
         id: "upandoFaltantesExp",
-        title:"Upando Faltantes Exp",
-        description: "loren loren loren",        
+        title:"Upar expedientes",
+        description: "Identificar e solucionar expedientes que não foram enviados (upados).",        
         level: "beginner",  
        
         resources: [
-          { title: "Manual de Soluções - Página 55", link: "/midia/manoel.pdf#page=55" },]
+          { title: "Manual de Soluções - Página 59", link: "/midia/manoel.pdf#page=59" },]
       },
       {
         id: "diariosBugados",
@@ -324,7 +324,7 @@ export const learningPathData: Module[] = [
         level: "intermediate",  
        
         resources: [
-          { title: "Manual de Soluções - Página 59", link: "/midia/manoel.pdf#page=59" },
+          { title: "Manual de Soluções - Página 62", link: "/midia/manoel.pdf#page=62" },
           { title: "SQL", link: "https://www.w3schools.com/sql/default.asp" },]
       },
       {
@@ -334,40 +334,87 @@ export const learningPathData: Module[] = [
         level: "intermediate",  
        
         resources: [
-          { title: "Manual de Soluções - Página 56", link: "/midia/manoel.pdf#page=56" },
+          { title: "Manual de Soluções - Página 57", link: "/midia/manoel.pdf#page=57" },
           { title: "MongoDB", link: "https://www.mongodb.com" },]
       },
       {
-        id: "",
-        title:"",
+        id: "atualizacaoNoSource",
+        title:"Atualização no Source",
         description: "Acompanhar processos que sofreram alteração, mas não foram inseridos ou atualizados no Source.",        
         level: "intermediate",  
        
         resources: [
-          { title: "Manual de Soluções - Página 56", link: "/midia/manoel.pdf#page=56" },
+          { title: "Manual de Soluções - Página 57", link: "/midia/manoel.pdf#page=57" },
           { title: "MongoDB", link: "https://www.mongodb.com" },]
       },
+      {
+        id: "pagamentoProxy",
+        title:"Pagamento dos planos de proxy",
+        description: "Acompanhar a data para pagamento dos planos de proxy.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 71", link: "/midia/manoel.pdf#page=71" },
+          ]
+      },
+      {
+        id: "doubleCheck",
+        title:"Double check",
+        description: "Verificação de emails Double check e acompanhamento dos casos.",        
+        level: "intermediate",
+       
+        resources: [
+          { title: "Manual de Soluções - Página 77", link: "/midia/manoel.pdf#page=77" },
+          ]
+      },{
+        id: "programasSuporte",
+        title:"Programas de Suporte",
+        description: "Verificar se os programas de suporte estão rodando corretamente.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 79", link: "/midia/manoel.pdf#page=79" },
+          ]
+      },{
+        id: "verSaude",
+        title:"Ver saúde",
+        description: "Ver saude do onboarding",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "zabbix", link: "http://fallout.processoagil.com/zabbix" },
+          { title: "Manual de Soluções - Página 81", link: "/midia/manoel.pdf#page=81" },
+          ]
+      },{
+        id: "monitorarReplicas",
+        title:"Monitorar réplicas",
+        description: "Acompanhar continuamente as replicações no Ômega, garantindo que estejam ocorrendo corretamente.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 65", link: "/midia/manoel.pdf#page=65" },
+          ]
+      },{
+        id: "monitorarManutencao",
+        title:"Monitorar manutenção",
+        description: "Monitorar as manutenções no SQL, garantindo que estejam sendo executadas corretamente.",        
+        level: "beginner",  
+       
+        resources: [
+          { title: "Manual de Soluções - Página 67", link: "/midia/manoel.pdf#page=67" },
+          ]
+      }
     ],
     
   },
   {
     id: "databases",
     title: "Crítico",
-    description: "Loren loren loren",
+    description: "Principais processos para situações críticas do sistema",
     color: "bg-red-500",
     icon: AlertTriangle,
     topics: [
-      {
-        id: "loren",
-        title: "loren",
-        description: "lores",
-        
-        level: "beginner",
-       
-        resources: [
-         
-        ],
-      },
+      
       
     ],
     
@@ -506,72 +553,7 @@ export const learningPathData: Module[] = [
     
   },
   
-  {
-    id: "testing",
-    title: "Testes e Qualidade",
-    description: "Garantir confiabilidade e manutenibilidade do código",
-    color: "bg-pink-500",
-    icon: Shapes,
-    topics: [
-      {
-        id: "unit-testing",
-        title: "Testes Unitários",
-        description: "Jest, Vitest, Mocha e frameworks de teste",
-        icon: "🧪",
-        level: "intermediate",
-       
-        resources: [
-          { title: "Jest", link: "https://jestjs.io" },
-          { title: "Vitest", link: "https://vitest.dev" },
-          { title: "Mocha", link: "https://mochajs.org" },
-          { title: "Assertions (wiki)", link: "https://en.wikipedia.org/wiki/Assertion_(software_development)" },
-        ],
-      },
-      {
-        id: "integration-testing",
-        title: "Testes de Integração",
-        description: "Testes de API, banco de dados e componentes",
-        
-        level: "intermediate",
-       
-        resources: [
-          { title: "Supertest", link: "https://github.com/visionmedia/supertest" },
-          { title: "Cypress", link: "https://www.cypress.io" },
-          { title: "Playwright", link: "https://playwright.dev" },
-          { title: "Integration (generic)", link: "#" },
-        ],
-      },
-      {
-        id: "e2e-testing",
-        title: "Testes E2E",
-        description: "Automação de testes de interface",
-        
-        level: "advanced",
-       
-        resources: [
-          { title: "Cypress", link: "https://www.cypress.io" },
-          { title: "Playwright", link: "https://playwright.dev" },
-          { title: "Selenium", link: "https://www.selenium.dev" },
-          { title: "Automation (generic)", link: "#" },
-        ],
-      },
-      {
-        id: "tdd",
-        title: "Test-Driven Development",
-        description: "Metodologia TDD e boas práticas",
-        
-        level: "advanced",
-       
-        resources: [
-          { title: "TDD (wiki)", link: "https://en.wikipedia.org/wiki/Test-driven_development" },
-          { title: "BDD (wiki)", link: "https://en.wikipedia.org/wiki/Behavior-driven_development" },
-          { title: "Refactoring (guide)", link: "https://refactoring.guru/refactoring/what-is-refactoring" },
-          { title: "Code Coverage (wiki)", link: "https://en.wikipedia.org/wiki/Code_coverage" },
-        ],
-      },
-    ],
-    
-  },
+ 
   {
     id: "soft-skills",
     title: "Soft Skills e Profissionalismo",
